@@ -1,16 +1,20 @@
-### Hi there 👋
+### Bem vindo ao meu perfil! 
+### Francisco Junior
 
-<!--
-**Franciscoafcj/Franciscoafcj** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+- 📢 Social Media: https://franciscoafcj.carrd.co
+- 👨‍🎓 Cursando Engenharia de Software - UniFatecie
+- 👨‍🎓 Estudando programação na DIO
 
-Here are some ideas to get you started:
+<picture>
+<source 
+  srcset="https://github-readme-stats.vercel.app/api?username=Franciscoafcj&show_icons=true&theme=synthwave"
+  media="(prefers-color-scheme: dark)"
+/>
+<source
+  srcset="https://github-readme-stats.vercel.app/api?username=Franciscoafcj&show_icons=true"
+  media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+/>
+<img src="https://github-readme-stats.vercel.app/api?username=Franciscoafcj&show_icons=true" />
+</picture>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Franciscoafcj)](https://github.com/Franciscoafcj/github-readme-stats)
