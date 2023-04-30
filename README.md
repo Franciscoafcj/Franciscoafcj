@@ -2,7 +2,7 @@
 <hr>
 <h2>Francisco Junior</h2>
 
-- 📢 Social Media: https://franciscoafcj.carrd.co
+- 📢 Social Media: https://franciscoafcj.github.io/Landing-page/
 - 👨‍🎓 Cursando Engenharia de Software - UniFatecie
 - 👨‍🎓 Estudando programação na DIO
 
