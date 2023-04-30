@@ -1,4 +1,5 @@
 <h1>### Bem vindo ao meu perfil!</h1>
+<hr>
 <h2>Francisco Junior</h2>
 
 - 📢 Social Media: https://franciscoafcj.carrd.co
