@@ -1,5 +1,5 @@
 <h1>### Bem vindo ao meu perfil!</h1>
-### Francisco Junior
+<h2>Francisco Junior</h2>
 
 - 📢 Social Media: https://franciscoafcj.carrd.co
 - 👨‍🎓 Cursando Engenharia de Software - UniFatecie
