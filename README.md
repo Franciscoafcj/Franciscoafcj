@@ -2,7 +2,7 @@
 <hr>
 <h2>Francisco Junior</h2>
 
-- 📢 Social Media: https://franciscoafcj.github.io/Landing-page/
+- 📢 Social Media: https://franciscoafcj.github.io/Landing-page/](https://franciscoafcj.github.io/All-My-Links/
 - 👨‍🎓 Cursando Engenharia de Software - UniFatecie
 - 👨‍🎓 Estudando programação na DIO
 
