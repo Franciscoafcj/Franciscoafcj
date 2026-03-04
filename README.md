@@ -1,5 +1,4 @@
 <h1>Bem vindo ao meu perfil!</h1>
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&duration=2000&pause=500&color=9F3188&width=435&lines=Infraestrutura+de+TI;DevOps;Linux;ITSM+%26+ITIL)](https://git.io/typing-svg)
 <hr>
 <h2>Francisco Junior</h2>
 
@@ -19,3 +18,4 @@
 <img src="https://github-readme-stats.vercel.app/api?username=Franciscoafcj&show_icons=true" />
 </picture>
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Roboto&duration=2000&pause=500&color=9F3188&width=435&lines=Infraestrutura+de+TI;DevOps;Linux;ITSM+%26+ITIL)](https://git.io/typing-svg)
