@@ -1,0 +1,34 @@
+name: Métricas do perfil
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/metrics.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-metrics
+  cancel-in-progress: false
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Gerar calendário de contribuições
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # stable
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          user: Franciscoafcj
+          filename: github-metrics.svg
+          template: classic
+          base: ''
+          config_timezone: America/Sao_Paulo
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
