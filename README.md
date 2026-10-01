@@ -60,13 +60,11 @@ Ferramenta com interface web e backend em PowerShell para apoiar o provisionamen
 
 `PowerShell` `Active Directory` `API REST`
 
-<!-- Ativar este bloco após a primeira execução bem-sucedida de .github/workflows/metrics.yml.
 ## Atividade no GitHub
 
 ![Calendário de contribuições de Francisco Junior](./github-metrics.svg)
 
-Atualizado diariamente com lowlighter/metrics.
--->
+Atualizado diariamente com [lowlighter/metrics](https://github.com/lowlighter/metrics).
 
 ## Tecnologias e conhecimentos
 
