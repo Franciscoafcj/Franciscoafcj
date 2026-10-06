@@ -1,72 +1,39 @@
 <div align="center">
 
-# Olá, eu sou o Francisco Junior 👋
+### `francisco@github:~$ whoami`
 
-### Infraestrutura de TI • Automação • Observabilidade • Cloud & DevOps
+<img src="./assets/portrait.svg" width="340" alt="Retrato ASCII animado de Francisco Junior" /><img src="./assets/info-card.svg" width="500" alt="Francisco Junior — Infraestrutura, Automação, Cloud e DevOps" />
 
-**Automação para simplificar operações. Monitoramento para entender problemas. Documentação para compartilhar soluções.**
+**Infraestrutura de TI · Automação · Observabilidade**
 
-[Conheça meu portfólio](https://franciscoafcj.github.io/Portf-lio/)
+[**Conheça meu portfólio →**](https://franciscoafcj.github.io/Portf-lio/)
 
 </div>
 
----
+### `$ cat sobre-mim.md`
 
-## Sobre mim
+Sou **Francisco Junior**, Técnico de Infraestrutura de TI e estudante de **Engenharia de Software na UniFatecie**. Trabalho com sustentação de ambientes Windows e Linux, automação de rotinas e monitoramento de serviços.
 
-Sou **Técnico de Infraestrutura de TI** e estudante de **Engenharia de Software na UniFatecie**, com atuação em ambientes Windows Server e Linux, automação de rotinas e monitoramento de serviços.
+Conecto essa experiência a projetos de **Cloud e DevOps**: infraestrutura como código, contêineres e entrega contínua. Gosto de transformar problemas operacionais em soluções documentadas e reutilizáveis.
 
-Minha trajetória passa por suporte técnico, redes e sustentação de infraestrutura. Hoje, conecto essa experiência à evolução em **DevOps, Cloud e confiabilidade de sistemas**, desenvolvendo projetos com Terraform, Docker, Kubernetes e pipelines de CI/CD.
+### `$ ls projetos-em-destaque/`
 
-## O que faço na prática
+| Projeto | O que você encontra | Tecnologias |
+| :--- | :--- | :--- |
+| [**Ambiente Azure com Terraform**](https://github.com/Franciscoafcj/terraform-azure-dev-environment) | Provisionamento modular de VM Linux e recursos de rede para desenvolvimento. | Terraform · Azure · Docker |
+| [**AD Lockout Monitor**](https://github.com/Franciscoafcj/AD-Monitor-Blocked-Users) | Monitoramento de bloqueios de contas, identificação de origem e diagnóstico. | PowerShell · AD · WinRM |
+| [**Laboratório Kubernetes**](https://github.com/Franciscoafcj/PROJETO-kubernetes-1) | Cluster K3s com aplicação PHP, MySQL persistente e registro de troubleshooting. | Kubernetes · Vagrant · Zabbix |
+| [**AD User Creator**](https://github.com/Franciscoafcj/ad-user-creator-main) | Interface web integrada à automação do provisionamento de usuários. | PowerShell · AD · API REST |
 
-- **Automação de infraestrutura:** scripts em PowerShell e integrações com Microsoft Graph para provisionamento de contas, grupos e licenças no ecossistema Microsoft.
-- **Observabilidade e incidentes:** monitoramento com Grafana e Zabbix, consultas SQL para análise de disponibilidade e SLAs, investigação de falhas e documentação de causas e soluções.
-- **Administração de ambientes híbridos:** sustentação de Windows Server e Linux, Active Directory, DNS/DNSSEC, redes e serviços web.
-- **Backup e recuperação:** testes de Disaster Recovery e restauração granular de bancos SQL Server com Veeam.
-- **Documentação técnica:** procedimentos operacionais, registros de troubleshooting e organização de conhecimento para apoiar a operação.
+### `$ cat experiencia.txt`
 
-## Projetos em destaque
+- **Automação:** PowerShell e Microsoft Graph para contas, grupos e licenças.
+- **Observabilidade:** Grafana, Zabbix e SQL para disponibilidade, SLAs e investigação de incidentes.
+- **Infraestrutura:** Windows Server, Linux, Active Directory, DNS/DNSSEC e serviços web.
+- **Continuidade:** testes de recuperação e restauração de bancos SQL Server com Veeam.
+- **Conhecimento compartilhado:** procedimentos operacionais e documentação de causas e soluções.
 
-### ☁️ [Ambiente de desenvolvimento na Azure com Terraform](https://github.com/Franciscoafcj/terraform-azure-dev-environment)
-
-Provisionamento de uma VM Linux e recursos de rede na Azure, com configuração automatizada de ferramentas de desenvolvimento.
-
-**Demonstra:** infraestrutura como código, organização modular, provisionamento de rede e automação da configuração do ambiente.
-
-`Terraform` `Azure` `Linux` `Docker` `Cloud-init`
-
-### 🔐 [AD Lockout Monitor](https://github.com/Franciscoafcj/AD-Monitor-Blocked-Users)
-
-Monitoramento de eventos de bloqueio de contas no Active Directory, com identificação da origem, filtro por usuário e estatísticas de sessão.
-
-**Demonstra:** automação aplicada ao suporte, consulta de eventos em controladores de domínio e diagnóstico de problemas de autenticação.
-
-`PowerShell` `Active Directory` `WinRM` `Windows Server`
-
-### ⚙️ [Laboratório Kubernetes com K3s](https://github.com/Franciscoafcj/PROJETO-kubernetes-1)
-
-Cluster local com aplicação PHP, banco MySQL persistente e monitoramento com Zabbix. A documentação registra decisões técnicas e problemas encontrados durante a implantação.
-
-**Demonstra:** orquestração de contêineres, volumes persistentes, health checks e troubleshooting em laboratório.
-
-`Kubernetes / K3s` `Vagrant` `MySQL` `Zabbix`
-
-### 👤 [AD User Creator](https://github.com/Franciscoafcj/ad-user-creator-main)
-
-Ferramenta com interface web e backend em PowerShell para apoiar o provisionamento padronizado de usuários no Active Directory.
-
-**Demonstra:** integração entre interface e automação administrativa, validação de dados e padronização de rotinas de criação de contas.
-
-`PowerShell` `Active Directory` `API REST`
-
-## Atividade no GitHub
-
-![Calendário de contribuições de Francisco Junior](./github-metrics.svg)
-
-Atualizado diariamente com [lowlighter/metrics](https://github.com/lowlighter/metrics).
-
-## Tecnologias e conhecimentos
+### `$ cat stack.conf`
 
 | Área | Experiência e ferramentas |
 | :--- | :--- |
@@ -79,14 +46,22 @@ Atualizado diariamente com [lowlighter/metrics](https://github.com/lowlighter/me
 | **Cloud, IaC e contêineres** | Vivência com AWS; projetos e laboratórios com Azure, Terraform, Docker, Docker Compose e Kubernetes/K3s |
 | **Versionamento e CI/CD** | Git, GitHub e projetos com GitHub Actions e GitLab CI |
 
-## Formação e aprendizado
+### `$ ./contribuicoes`
 
-🎓 **Bacharelado em Engenharia de Software — UniFatecie** · Em andamento.
+<p align="center">
+  <img src="./github-metrics.svg" width="840" alt="Calendário de contribuições de Francisco Junior no GitHub, atualizado diariamente pelo Metrics" />
+</p>
 
-Formação complementar em DevOps com AWS, fundamentos de arquitetura em nuvem e Docker. Continuo aprofundando Linux, infraestrutura como código, observabilidade e práticas de entrega contínua por meio de estudos e projetos.
+<sub>Dados reais do GitHub, atualizados diariamente com <a href="https://github.com/lowlighter/metrics">Metrics</a>.</sub>
 
-## Vamos conversar?
+### `$ cat proximo-passo.txt`
 
-Tenho interesse em oportunidades e colaboração em **Infraestrutura, SysAdmin, Cloud e DevOps**, com foco em automação e confiabilidade.
+🎓 **Engenharia de Software — UniFatecie**, em andamento. Formação complementar em DevOps com AWS, fundamentos de arquitetura em nuvem e Docker.
 
-Conheça mais sobre minha trajetória e meus projetos no [portfólio](https://franciscoafcj.github.io/Portf-lio/).
+Continuo aprofundando Linux, infraestrutura como código e observabilidade. Tenho interesse em oportunidades e colaboração em **Infraestrutura, SysAdmin, Cloud e DevOps**.
+
+[**Explore minha trajetória e meus projetos no portfólio →**](https://franciscoafcj.github.io/Portf-lio/)
+
+---
+
+<sub>Visual inspirado no <a href="https://www.avivashishta.com/blog/build-animated-github-profile-readme">tutorial de Avi Vashishta</a>. Arte e conteúdo adaptados para este perfil. Os cartões SVG são gerados localmente com <code>node scripts/generate-profile.mjs</code>.</sub>
