@@ -1,10 +1,9 @@
 """Regenerate the public avatar and contribution cards. Never store access tokens."""
-import base64
 import io
 import json
 import os
 from pathlib import Path
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, timedelta
 from html import escape
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
@@ -17,7 +16,7 @@ CSS = """text{font-family:Consolas,'Liberation Mono',monospace}
 .reveal{animation:reveal .5s both}
 @keyframes reveal{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.reveal{animation:none}}"""
-COLORS = ["#18232d", "#164c43", "#238873", "#42baa0", "#80efd2"]
+COLORS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
 LEVELS = ["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"]
 
 def text(x, y, value, size=12, color="#9eafbd", extra=""):
@@ -75,35 +74,45 @@ def validate_calendar(calendar):
 
 def render_calendar(calendar):
     days = validate_calendar(calendar)
-    body = text(28,82,"CONTRIBUIÇÕES",18,"#e6edf3")
-    body += text(28,106,f'{days[0]["date"]} → {days[-1]["date"]} · dados do GitHub',11)
-    months = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"]
+    weeks = calendar["weeks"]
+    width = 40 + 16 * len(weeks)
+    months = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+    style = """text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.label{fill:#7d8590;font-size:13px;font-weight:600}
+.total{fill:#57606a;font-size:15px;font-weight:600}
+.cell{transform-box:fill-box;transform-origin:center;animation:pop .55s ease-out both}
+.active{animation:pop .55s ease-out both,flash .7s ease-out both}
+@keyframes pop{0%{opacity:0;transform:scale(.2)}60%{opacity:1;transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}
+@keyframes flash{0%,45%{filter:brightness(2.4)}100%{filter:brightness(1)}}
+@media(prefers-color-scheme:dark){.total{fill:#e6edf3}}
+@media(prefers-reduced-motion:reduce){.cell{opacity:1;transform:none;filter:none;animation:none!important}}"""
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="158" viewBox="0 0 {width} 158" role="img">',
+        '<title>Contribuições de Francisco Junior no GitHub</title>',
+        f'<desc>Atividade real de {USER}, de {days[0]["date"]} a {days[-1]["date"]}. '
+        'Cada quadrado representa um dia; a intensidade do verde indica o volume de contribuições.</desc>',
+        f'<style>{style}</style>',
+    ]
     last_month = None
-    step = min(14, 742 / len(calendar["weeks"]))
-    for col, week in enumerate(calendar["weeks"]):
+    for col, week in enumerate(weeks):
         first = date.fromisoformat(week["contributionDays"][0]["date"])
         if first.month != last_month:
-            body += text(round(60+col*step,2),133,months[first.month-1],10)
+            parts.append(f'<text class="label" x="{34+col*16}" y="16">{months[first.month-1]}</text>')
             last_month = first.month
         for day in week["contributionDays"]:
-            x, y = 60+col*step, 146+day["weekday"]*15
+            row = day["weekday"]
             color = COLORS[LEVELS.index(day["contributionLevel"])]
-            body += (f'<rect class="reveal" style="animation-delay:{(col*.018+day["weekday"]*.022):.3f}s" '
-                     f'x="{x:.2f}" y="{y}" width="{step-3:.2f}" height="12" rx="3" fill="{color}">'
-                     f'<title>{day["date"]}: {day["contributionCount"]} contribuições</title></rect>')
-    for row,label in [(1,"seg"),(3,"qua"),(5,"sex")]:
-        body += text(28,155+row*15,label,10)
-    total = calendar["totalContributions"]
-    active = sum(d["contributionCount"]>0 for d in days)
-    recent = sum(d["contributionCount"] for d in days[-30:])
-    for x, number, label in [(28,total,"contribuições no período"),(307,active,"dias com atividade"),(574,recent,"nos últimos 30 dias")]:
-        body += text(x,293,number,26,"#80efd2") + text(x,315,label,11)
-    body += '<path d="M28 263H810" stroke="#303b49"/>'
-    body += text(590,113,"menos",10)
-    for i,c in enumerate(COLORS):
-        body += f'<rect x="{630+i*16}" y="103" width="12" height="12" rx="3" fill="{c}"/>'
-    body += text(717,113,"mais",10)
-    return frame(840,350,"francisco / contribuicoes","Calendário de contribuições reais do GitHub, com totais e atividade dos últimos 30 dias.",body)
+            classes = "cell active" if day["contributionCount"] else "cell"
+            delay = col * .065 + row * .036
+            parts.append(
+                f'<rect class="{classes}" x="{34+col*16}" y="{24+row*16}" width="13" height="13" '
+                f'rx="2.5" fill="{color}" style="animation-delay:{delay:.3f}s">'
+                f'<title>{day["date"]}: {day["contributionCount"]} contribuições</title></rect>')
+    for row, label in [(1, "seg"), (3, "qua"), (5, "sex")]:
+        parts.append(f'<text class="label" x="2" y="{35+row*16}">{label}</text>')
+    total = f'{calendar["totalContributions"]:,}'.replace(",", ".")
+    parts.append(f'<text class="total" x="34" y="152">{total} contribuições nos últimos 12 meses</text>')
+    return "".join(parts) + "</svg>\n"
 
 def render_portrait(raw):
     image = ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("RGB")
