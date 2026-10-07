@@ -10,6 +10,14 @@
 
 </div>
 
+### `$ ./contribuicoes`
+
+<p align="center">
+  <img src="./github-metrics.svg" width="840" alt="Calendário animado de contribuições reais de Francisco Junior no GitHub" />
+</p>
+
+<sub>Minhas contribuições reais no GitHub, atualizadas diariamente. Animação de entrada com brilho nos dias de atividade.</sub>
+
 ### `$ cat sobre-mim.md`
 
 Sou **Francisco Junior**, Técnico de Infraestrutura de TI e estudante de **Engenharia de Software na UniFatecie**. Trabalho com sustentação de ambientes Windows e Linux, automação de rotinas e monitoramento de serviços.
@@ -45,14 +53,6 @@ Conecto essa experiência a projetos de **Cloud e DevOps**: infraestrutura como 
 | **Virtualização** | Proxmox VE e administração de máquinas virtuais |
 | **Cloud, IaC e contêineres** | Vivência com AWS; projetos e laboratórios com Azure, Terraform, Docker, Docker Compose e Kubernetes/K3s |
 | **Versionamento e CI/CD** | Git, GitHub e projetos com GitHub Actions e GitLab CI |
-
-### `$ ./contribuicoes`
-
-<p align="center">
-  <img src="./github-metrics.svg" width="840" alt="Calendário animado de contribuições reais de Francisco Junior no GitHub" />
-</p>
-
-<sub>Minhas contribuições reais no GitHub, atualizadas diariamente. Animação de entrada com brilho nos dias de atividade.</sub>
 
 ### `$ cat proximo-passo.txt`
 
