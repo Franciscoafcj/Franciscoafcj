@@ -49,10 +49,10 @@ Conecto essa experiência a projetos de **Cloud e DevOps**: infraestrutura como 
 ### `$ ./contribuicoes`
 
 <p align="center">
-  <img src="./github-metrics.svg" width="840" alt="Calendário de contribuições de Francisco Junior no GitHub, atualizado diariamente pelo Metrics" />
+  <img src="./github-metrics.svg" width="840" alt="Calendário animado de contribuições reais de Francisco Junior no GitHub" />
 </p>
 
-<sub>Dados reais do GitHub, atualizados diariamente com <a href="https://github.com/lowlighter/metrics">Metrics</a>.</sub>
+<sub>Minhas contribuições reais no GitHub, atualizadas diariamente. Animação de entrada com brilho nos dias de atividade.</sub>
 
 ### `$ cat proximo-passo.txt`
 
@@ -64,4 +64,4 @@ Continuo aprofundando Linux, infraestrutura como código e observabilidade. Tenh
 
 ---
 
-<sub>Visual inspirado no <a href="https://www.avivashishta.com/blog/build-animated-github-profile-readme">tutorial de Avi Vashishta</a>. Arte e conteúdo adaptados para este perfil. Os cartões SVG são gerados localmente com <code>node scripts/generate-profile.mjs</code>.</sub>
+<sub>Visual inspirado no <a href="https://www.avivashishta.com/blog/build-animated-github-profile-readme">tutorial de Avi Vashishta</a>. Arte e conteúdo adaptados para este perfil. Retrato e calendário são atualizados pelo GitHub Actions; o cartão de apresentação é gerado com <code>node scripts/generate-profile.mjs</code>.</sub>
