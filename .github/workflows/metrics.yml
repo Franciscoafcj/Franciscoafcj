@@ -1,4 +1,4 @@
-name: Métricas do perfil
+name: Retrato e contribuições do perfil
 
 on:
   schedule:
@@ -6,7 +6,11 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/metrics.yml']
+    paths:
+      - '.github/workflows/metrics.yml'
+      - 'scripts/refresh-profile.py'
+      - 'scripts/test_refresh_profile.py'
+      - 'scripts/generate-profile.mjs'
 
 permissions:
   contents: write
@@ -18,17 +22,36 @@ concurrency:
 jobs:
   metrics:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
-      - name: Gerar calendário de contribuições
-        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # stable
+      - name: Obter repositório
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          user: Franciscoafcj
-          filename: github-metrics.svg
-          template: classic
-          base: ''
-          config_timezone: America/Sao_Paulo
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
+          ref: main
+
+      - name: Preparar geração de imagens
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install --disable-pip-version-check Pillow==12.3.0
+
+      - name: Validar dados e SVGs
+        run: |
+          .venv/bin/python -m unittest discover -s scripts -p 'test_*.py' -v
+          node --check scripts/generate-profile.mjs
+
+      - name: Atualizar retrato e contribuições reais
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: .venv/bin/python scripts/refresh-profile.py
+
+      - name: Publicar imagens atualizadas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/portrait.svg github-metrics.svg data/portrait.json data/contributions.json
+          if git diff --cached --quiet; then
+            echo "Imagens já estão atualizadas."
+            exit 0
+          fi
+          git commit -m "Atualiza retrato e calendário animado do perfil"
+          git push origin HEAD:main
