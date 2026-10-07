@@ -121,18 +121,29 @@ def render_portrait(raw):
     image = image.crop((16,12,392,388)).resize((90,58), Image.Resampling.LANCZOS)
     gray = ImageOps.autocontrast(image.convert("L"), cutoff=1).filter(
         ImageFilter.UnsharpMask(radius=1, percent=120, threshold=3))
+    # Remove only background connected to the image border, preserving eyes and teeth.
+    background_pixels = set()
+    pending = [(x, y) for x in range(90) for y in (0, 57)]
+    pending += [(x, y) for y in range(58) for x in (0, 89)]
+    while pending:
+        x, y = pending.pop()
+        if (x, y) in background_pixels:
+            continue
+        r, g, b = image.getpixel((x, y))
+        background = ((b > r*1.08 and b > g*1.12 and b > 100)
+                      or (g > r*1.5 and b > r*1.4)
+                      or (min(r, g, b) > 170 and max(r, g, b)-min(r, g, b) < 45))
+        if background:
+            background_pixels.add((x, y))
+            pending.extend((nx, ny) for nx, ny in ((x-1,y),(x+1,y),(x,y-1),(x,y+1))
+                           if 0 <= nx < 90 and 0 <= ny < 58 and (nx, ny) not in background_pixels)
     ramp = " .,:;irsXA253hMHGS#9B&@"
     body = ""
     rows = []
     for y in range(58):
         line = ""
         for x in range(90):
-            r,g,b = image.getpixel((x,y))
-            # Suppress the purple/teal background of this public avatar.
-            background = ((b > r*1.08 and b > g*1.12 and b > 100)
-                          or (g > r*1.5 and b > r*1.4)
-                          or (min(r,g,b)>240))
-            if background:
+            if (x, y) in background_pixels:
                 line += " "
             else:
                 luminance = (gray.getpixel((x,y))/255)**0.72
