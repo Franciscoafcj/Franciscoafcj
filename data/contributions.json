@@ -1,5 +1,5 @@
 {
-  "totalContributions": 501,
+  "totalContributions": 500,
   "weeks": [
     {
       "contributionDays": [
@@ -2388,7 +2388,7 @@
         {
           "date": "2026-11-21",
           "weekday": 6,
-          "contributionCount": 3,
+          "contributionCount": 2,
           "contributionLevel": "FIRST_QUARTILE"
         }
       ]
@@ -2404,6 +2404,12 @@
         {
           "date": "2026-11-23",
           "weekday": 1,
+          "contributionCount": 0,
+          "contributionLevel": "NONE"
+        },
+        {
+          "date": "2026-11-24",
+          "weekday": 2,
           "contributionCount": 0,
           "contributionLevel": "NONE"
         }
